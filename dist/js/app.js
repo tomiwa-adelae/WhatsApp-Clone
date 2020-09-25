@@ -57,6 +57,33 @@ class UI {
       setTimeout(() => document.querySelector('.alert').remove(), 3000);
    }
 
+   static searchChat(el) {
+      // Get what is being typed
+      const searchText = el.value.toLowerCase();
+
+      // Grab all the chat in the HTML
+      const chatLists = document.querySelectorAll('.chats-section div.chat');
+
+      // Convert to an Array
+      Array.from(chatLists).forEach((chatList) => {
+         const chatName = chatList.firstElementChild.textContent;
+
+         // Now Compare
+         if (chatName.toLowerCase().indexOf(searchText) != -1) {
+            chatList.style.display = 'flex';
+         } else {
+            chatList.style.display = 'none';
+         }
+
+         // NOW WE WANNA COMPARE TO SEE IF ANYTGING WE TYPE I THE SEARCH INPUT IS EQUAL TO THE LIST
+         // if (itemName.toLowerCase().indexOf(searchText) != -1) {
+         //    item.style.display = 'block';
+         // } else {
+         //    item.style.display = 'none';
+         // }
+      });
+   }
+
    static clearFields() {
       const nameInput = (document.querySelector('.name-input').value = '');
       const numberInput = (document.querySelector('.number-input').value = '');
@@ -89,7 +116,7 @@ class Storage {
    }
 }
 
-// Create Chat
+// Bring the Add Chat Form
 document.querySelector('.create-chat').addEventListener('click', (e) => {
    const createChatForm = document.querySelector('#add-chat-form');
    createChatForm.classList.toggle('show-add-form');
@@ -98,7 +125,7 @@ document.querySelector('.create-chat').addEventListener('click', (e) => {
 // Display Chat
 document.addEventListener('DOMContentLoaded', UI.getChats);
 
-// Add Message
+// Add Chat
 document.querySelector('#add-chat-form').addEventListener('submit', (e) => {
    e.preventDefault();
    const nameInput = document.querySelector('.name-input').value;
@@ -122,5 +149,12 @@ document.querySelector('#add-chat-form').addEventListener('submit', (e) => {
       createChatForm.classList.toggle('show-add-form');
    }
 });
+
+// Search Chat
+document
+   .querySelector('.search-section input')
+   .addEventListener('keyup', (e) => {
+      UI.searchChat(e.target);
+   });
 
 // Remove Chat
