@@ -1,0 +1,61 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.container {
+   width: 98%;
+   margin: auto;
+   overflow: hidden;
+}
+
+img {
+   width: 100%;
+}
+
+.rounded-img {
+   border-radius: 50%;
+}
+
+// Text Style
+.text-success {
+   color: $success-color;
+}
+
+// Burger
+.burger {
+   cursor: pointer;
+   div {
+      width: 5px;
+      height: 5px;
+      background-color: lighten($dark-color, 10%);
+      margin: 0.2rem 0;
+      border-radius: 50%;
+   }
+}
+
+// Alerts
+.alert {
+   &-danger {
+      background-color: $danger-color;
+      color: #fff;
+      padding: 0.5rem 1rem;
+   }
+   &-success {
+      background-color: $success-color;
+      color: #fff;
+      padding: 0.5rem 1rem;
+   }
+}
+
+// Badges
+.badge {
+   &-success {
+      background-color: $success-color;
+   }
+}
+
+@mixin easeOut {
+   transition: all 0.5s ease-out;
+}

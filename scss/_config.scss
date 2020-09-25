@@ -1,0 +1,41 @@
+$primary-color: #ccc;
+$light-color: #fff;
+$dark-color: #343a40;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$max-width: 1100px;
+
+// MARGIN AND PADDING
+$spaceamounts: (0.5, 1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+   // ALL ROUND MARGIN
+   .m-#{$space} {
+      margin: #{$space}rem;
+   }
+
+   // VERTICAL MARGIN
+   .my-#{$space} {
+      margin: #{$space}rem 0;
+   }
+
+   // Horizontal Margin
+   .mx-#{$space} {
+      margin: 0 #{$space}rem;
+   }
+
+   // ALL ROUND PADDING
+   .p-#{$space} {
+      padding: #{$space}rem;
+   }
+
+   // VERTICAL padding
+   .py-#{$space} {
+      padding: #{$space}rem 0;
+   }
+
+   // Horizontal Margin
+   .px-#{$space} {
+      padding: 0 #{$space}rem;
+   }
+}
