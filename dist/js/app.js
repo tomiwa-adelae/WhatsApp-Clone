@@ -33,11 +33,10 @@ class UI {
             <h4>${chat.chatName}</h4>
          </div>
          <div class="time-badge mx-1">
-            <span>10:04 PM</span>
+            <span class ="time">10:04 PM</span>
             <span class="badge badge-success">10</span>
          </div>
       `;
-
       // Append the New Div to the Chats Section
       const chatsList = document.querySelector('.chats-section');
       chatsList.appendChild(newDiv);
@@ -85,8 +84,6 @@ class UI {
          const chatName = chatList.firstElementChild.textContent;
          chatList.addEventListener('click', (e) => {
             const chatName = e.target.children[0].innerText;
-            console.log(chatName);
-
             const messageChat = document.createElement('div');
             messageChat.classList.add('show-messages-chats');
             messageChat.innerHTML = `
@@ -131,6 +128,40 @@ class UI {
 
    // }
 
+   // Display Time
+   static displayTime() {
+      // Display Current Time
+      const times = document.querySelector('.time');
+      const showAmPm = true;
+
+      function displayTime() {
+         let currentTime = new Date(),
+            currentHour = currentTime.getHours(),
+            currentMins = currentTime.getMinutes(),
+            currentSec = currentTime.getSeconds();
+
+         const amPm = currentHour >= 12 ? 'PM' : 'AM';
+
+         // For 12 Hours Format
+         currentHour = currentHour % 12 || 12;
+
+         times.innerHTML = `
+         ${currentHour}<span>:</span>${addZeros(
+            currentMins
+         )}<span>:</span>${addZeros(currentSec)} ${showAmPm ? amPm : ''}
+      `;
+
+         setTimeout(displayTime, 1000);
+      }
+
+      // Add Zeros
+      function addZeros(n) {
+         return (parseInt(n, 10) < 10 ? '0' : '') + n;
+      }
+
+      displayTime();
+   }
+
    static clearFields() {
       const nameInput = (document.querySelector('.name-input').value = '');
       const numberInput = (document.querySelector('.number-input').value = '');
@@ -172,6 +203,9 @@ document.querySelector('.create-chat').addEventListener('click', (e) => {
 // Display Chat
 document.addEventListener('DOMContentLoaded', UI.getChats);
 
+// Display Time
+document.addEventListener('DOMContentLoaded', UI.displayTime);
+
 // Add Chat
 document.querySelector('#add-chat-form').addEventListener('submit', (e) => {
    e.preventDefault();
@@ -212,3 +246,26 @@ document.addEventListener('DOMContentLoaded', (e) => {
 });
 
 // Remove Chat
+
+// const times = document.querySelectorAll('.time');
+// console.log(times);
+
+// function displayTime() {
+//    let currentTime = new Date(),
+//       currentHour = currentTime.getHours(),
+//       currentMins = currentTime.getMinutes(),
+//       currentSec = currentTime.getSeconds();
+
+//    time.innerHTML = `
+//       ${currentHour}<span>:</span>${addZeros(
+//       currentMins
+//    )}<span>:</span>${addZeros(currentSec)}
+//    `;
+
+//    setTimeout(displayTime, 1000);
+// }
+
+// // Add Zeros
+// function addZeros(n) {
+//    return (parseInt(n, 10) < 10 ? '0' : '') + n;
+// }
