@@ -88,22 +88,38 @@ class UI {
             messageChat.classList.add('show-messages-chats');
             messageChat.innerHTML = `
                <div class="chat">
-                  <div class ="profile-img px-1">
-                     <i class ="fas fa-arrow-left"></i>
-                     <img class = "rounded-img" src ="img/portrait-4.jpg">
-                     <h4>${chatName}</h4>
+                  <div class ="chat-header">
+                     <div class ="profile-img px-1">
+                        <i class ="fas fa-arrow-left"></i>
+                        <img class = "rounded-img" src ="img/portrait-4.jpg">
+                        <h4>${chatName}</h4>
+                     </div>
+                     <div class ="chat-header-utilities">
+                        <div class ="px-2">
+                           <i class ="fas fa-search"></i>
+                        </div>
+                        <div class="burger px-2">
+                           <div class="line-1"></div>
+                           <div class="line-2"></div>
+                           <div class="line-3"></div>
+                        </div>
+                     </div>
                   </div>
-                  <div class ="chat-header-utilities">
-                     <div class ="px-2">
-                        <i class ="fas fa-search"></i>
+
+                  <div class ="chat-input">
+                     <div>
+                        <i class="fas fa-smile"></i>
+                        <i class="fas fa-paperclip"></i>
                      </div>
-                     <div class ="px-2">
-                        <i class ="fas fa-mobile"></i>
-                     </div>
-                     <div class="burger px-2">
-                        <div class="line-1"></div>
-                        <div class="line-2"></div>
-                        <div class="line-3"></div>
+                     <input
+                        type="text"
+                        class="input"
+                        placeholder="Type a message"
+                     />
+                     <div>
+                        <button>
+                           <img src="img/Capture.PNG" alt="" />
+                        </button>
                      </div>
                   </div>
                </div>
