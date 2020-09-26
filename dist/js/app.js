@@ -6,6 +6,10 @@ class Chat {
    }
 }
 
+// const chatOne = new Chat('yes', 'no');
+
+// console.log(chatOne);
+
 // Message Class
 class Message {
    constructor(messageOne, messageTwo) {
@@ -83,6 +87,8 @@ class UI {
       Array.from(chatLists).forEach((chatList) => {
          const chatName = chatList.firstElementChild.textContent;
          chatList.addEventListener('click', (e) => {
+            // Make the WhatsApp Intro Displayed None
+            document.querySelector('.whatsapp-intro').style.display = 'none';
             const chatName = e.target.children[0].innerText;
             const messageChat = document.createElement('div');
             messageChat.classList.add('show-messages-chats');
@@ -90,9 +96,8 @@ class UI {
                <div class="chat">
                   <div class ="chat-header">
                      <div class ="profile-img px-1">
-                        <i class ="fas fa-arrow-left"></i>
                         <img class = "rounded-img" src ="img/portrait-4.jpg">
-                        <h4>${chatName}</h4>
+                        <h4 class= "message-name">${chatName}</h4>
                      </div>
                      <div class ="chat-header-utilities">
                         <div class ="px-2">
@@ -124,18 +129,22 @@ class UI {
                   </div>
                </div>
             `;
-
-            const messageArrow = messageChat.children[0];
-            messageArrow.addEventListener('click', (e) => {
-               if (e.target.classList.contains('fa-arrow-left')) {
-                  messageChat.classList.toggle('remove-chats');
-               }
-            });
+            console.log(messageChat);
             // Append Message Div to the HTML
-            const messageList = document.querySelector('.message-section');
+            const messageList = document.querySelector('.messages-section');
+            messageList.classList.add('show-messages-section');
             messageList.appendChild(messageChat);
-
-            // // console.log(messageList);
+            // Bring Profile
+            // const messageName = messageChat.children[0];
+            // messageName.addEventListener('click', (e) => {
+            // e.preventDefault();
+            // if (e.target.classList.contains('message-name')) {
+            // console.log(messageList);
+            // messageChat.classList.toggle('show-messages-chats-half');
+            // } else {
+            // console.log('none');
+            // }
+            // });
          });
       });
    }
@@ -262,26 +271,3 @@ document.addEventListener('DOMContentLoaded', (e) => {
 });
 
 // Remove Chat
-
-// const times = document.querySelectorAll('.time');
-// console.log(times);
-
-// function displayTime() {
-//    let currentTime = new Date(),
-//       currentHour = currentTime.getHours(),
-//       currentMins = currentTime.getMinutes(),
-//       currentSec = currentTime.getSeconds();
-
-//    time.innerHTML = `
-//       ${currentHour}<span>:</span>${addZeros(
-//       currentMins
-//    )}<span>:</span>${addZeros(currentSec)}
-//    `;
-
-//    setTimeout(displayTime, 1000);
-// }
-
-// // Add Zeros
-// function addZeros(n) {
-//    return (parseInt(n, 10) < 10 ? '0' : '') + n;
-// }
