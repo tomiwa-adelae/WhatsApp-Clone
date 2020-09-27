@@ -6,10 +6,6 @@ class Chat {
    }
 }
 
-// const chatOne = new Chat('yes', 'no');
-
-// console.log(chatOne);
-
 // Message Class
 class Message {
    constructor(messageOne, messageTwo) {
@@ -35,6 +31,7 @@ class UI {
          <div class="chat-head">
             <img class = "rounded-img" src ="img/portrait-1.jpg">
             <h4>${chat.chatName}</h4>
+            <p>${chat.chatNumber}</p>
          </div>
          <div class="time-badge mx-1">
             <span class ="time">10:04 PM</span>
@@ -129,29 +126,13 @@ class UI {
                   </div>
                </div>
             `;
-            console.log(messageChat);
             // Append Message Div to the HTML
             const messageList = document.querySelector('.messages-section');
             messageList.classList.add('show-messages-section');
             messageList.appendChild(messageChat);
-            // Bring Profile
-            // const messageName = messageChat.children[0];
-            // messageName.addEventListener('click', (e) => {
-            // e.preventDefault();
-            // if (e.target.classList.contains('message-name')) {
-            // console.log(messageList);
-            // messageChat.classList.toggle('show-messages-chats-half');
-            // } else {
-            // console.log('none');
-            // }
-            // });
          });
       });
    }
-
-   // static closeChats(){
-
-   // }
 
    // Display Time
    static displayTime() {

@@ -35,6 +35,31 @@ img {
    }
 }
 
+.close-burger {
+   cursor: pointer;
+   margin-left: 1.3rem;
+
+   div {
+      background-color: darken($primary-color, 30%);
+      margin: 0 0 5px 0;
+      width: 20px;
+      height: 2px;
+      pointer-events: none;
+   }
+
+   .line-1 {
+      transform: rotate(45deg) translate(5px, 5px);
+   }
+
+   .line-2 {
+      opacity: 0;
+   }
+
+   .line-3 {
+      transform: rotate(-45deg) translate(4px, -5px);
+   }
+}
+
 // Alerts
 .alert {
    &-danger {
