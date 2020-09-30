@@ -8,9 +8,8 @@ class Chat {
 
 // Message Class
 class Message {
-   constructor(messageOne, messageTwo) {
+   constructor(messageOne) {
       this.messageOne = messageOne;
-      this.messageTwo = messageTwo;
    }
 }
 
@@ -35,7 +34,11 @@ class UI {
          </div>
          <div class="time-badge mx-1">
             <span class ="time">10:04 PM</span>
-            <span class="badge badge-success">10</span>
+            <div class ="message-count">
+               <span class="badge badge-success">10</span>
+               <i class="fas fa-chevron-down"></i>
+            </div>
+            
          </div>
       `;
       // Append the New Div to the Chats Section
@@ -108,7 +111,11 @@ class UI {
                      </div>
                   </div>
 
-                  <div class ="chat-input">
+                  <div class ="chat-message">
+                     <div>Tomiwa<div>
+                  </div>
+
+                  <form class ="chat-input">
                      <div>
                         <i class="fas fa-smile"></i>
                         <i class="fas fa-paperclip"></i>
@@ -123,13 +130,45 @@ class UI {
                            <img src="img/Capture.PNG" alt="" />
                         </button>
                      </div>
-                  </div>
+                  </form>
                </div>
             `;
             // Append Message Div to the HTML
             const messageList = document.querySelector('.messages-section');
             messageList.classList.add('show-messages-section');
             messageList.appendChild(messageChat);
+
+            // Grab the Form Value
+            document
+               .querySelector('.chat-input')
+               .addEventListener('submit', (e) => {
+                  e.preventDefault();
+                  // Grab the input text
+                  const chatText = document.querySelector('.input').value;
+                  if (chatText.length === 0) {
+                     return;
+                  } else {
+                     const messageOne = new Message(chatText);
+
+                     // Create a new Div
+                     const newDiv = document.createElement('div');
+                     newDiv.classList.add('message-div');
+                     newDiv.innerHTML = `
+                        ${chatText}
+                     `;
+
+                     console.log(newDiv);
+
+                     // Insert it to the HTML
+                     const chatMessages = document.querySelector(
+                        '.chat-message'
+                     );
+                     chatMessages.appendChild(newDiv);
+
+                     // Clear Fields
+                     document.querySelector('.input').value = '';
+                  }
+               });
          });
       });
    }

@@ -10,6 +10,7 @@
 
       .chat {
          width: 100%;
+
          .chat-header {
             padding: 0.5rem;
             display: flex;
@@ -54,6 +55,11 @@
          .chat-message {
             margin: 5rem 0 0 0;
             height: 100vh;
+            background-color: red;
+
+            // .message-div {
+            //    background-color: red;
+            // }
          }
 
          .chat-input {
@@ -204,4 +210,16 @@
    //    top: 0;
    //    left: -100%;
    // }
+}
+
+.message-div {
+   background-color: #cde7b8;
+   width: 60%;
+   color: #666;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   margin: 0.3rem 0;
+   padding: 0.3rem 1rem;
+   border-radius: 5px;
 }

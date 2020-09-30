@@ -151,6 +151,14 @@
             font-size: 13px;
             pointer-events: none;
 
+            .message-count {
+               i {
+                  color: lighten($dark-color, 40%);
+                  margin-left: 0.5rem;
+                  display: none;
+               }
+            }
+
             .badge-success {
                padding: 2px 5px;
                border-radius: 50%;
@@ -160,6 +168,14 @@
 
          &:hover {
             background-color: darken($light-color, 10%);
+         }
+
+         &:hover {
+            .message-count {
+               i {
+                  display: inline-block;
+               }
+            }
          }
       }
 
