@@ -111,9 +111,7 @@ class UI {
                      </div>
                   </div>
 
-                  <div class ="chat-message">
-                     <div>Tomiwa<div>
-                  </div>
+                  <div class ="chat-message"></div>
 
                   <form class ="chat-input">
                      <div>
@@ -138,6 +136,8 @@ class UI {
             messageList.classList.add('show-messages-section');
             messageList.appendChild(messageChat);
 
+            console.log(messageChat);
+
             // Grab the Form Value
             document
                .querySelector('.chat-input')
@@ -156,8 +156,6 @@ class UI {
                      newDiv.innerHTML = `
                         ${chatText}
                      `;
-
-                     console.log(newDiv);
 
                      // Insert it to the HTML
                      const chatMessages = document.querySelector(
