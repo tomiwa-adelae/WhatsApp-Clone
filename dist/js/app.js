@@ -88,85 +88,85 @@ class UI {
          const chatName = chatList.firstElementChild.textContent;
          chatList.addEventListener('click', (e) => {
             // Make the WhatsApp Intro Displayed None
-            document.querySelector('.whatsapp-intro').style.display = 'none';
-            const chatName = e.target.children[0].innerText;
-            const messageChat = document.createElement('div');
-            messageChat.classList.add('show-messages-chats');
-            messageChat.innerHTML = `
-               <div class="chat">
-                  <div class ="chat-header">
-                     <div class ="profile-img px-1">
-                        <img class = "rounded-img" src ="img/portrait-4.jpg">
-                        <h4 class= "message-name">${chatName}</h4>
-                     </div>
-                     <div class ="chat-header-utilities">
-                        <div class ="px-2">
-                           <i class ="fas fa-search"></i>
-                        </div>
-                        <div class="burger px-2">
-                           <div class="line-1"></div>
-                           <div class="line-2"></div>
-                           <div class="line-3"></div>
-                        </div>
-                     </div>
-                  </div>
-
-                  <div class ="chat-message"></div>
-
-                  <form class ="chat-input">
-                     <div>
-                        <i class="fas fa-smile"></i>
-                        <i class="fas fa-paperclip"></i>
-                     </div>
-                     <input
-                        type="text"
-                        class="input"
-                        placeholder="Type a message"
-                     />
-                     <div>
-                        <button>
-                           <img src="img/Capture.PNG" alt="" />
-                        </button>
-                     </div>
-                  </form>
-               </div>
-            `;
-            // Append Message Div to the HTML
-            const messageList = document.querySelector('.messages-section');
-            messageList.classList.add('show-messages-section');
-            messageList.appendChild(messageChat);
-
-            console.log(messageChat);
-
+            // document.querySelector('.whatsapp-intro').style.display = 'none';
+            // const chatName = e.target.children[0].innerText;
+            // const messageSection = document.createElement('section');
+            // messageSection.innerHTML = 'Tomiwa';
+            // const mainBody = document.querySelector('.main');
+            // const whatsappSection = document.querySelector(
+            //    '.whatsapp-intro-section'
+            // );
+            // mainBody.replaceChild(messageSection, whatsappSection);
+            // const messageChat = document.createElement('div');
+            // messageChat.classList.add('show-messages-chats');
+            // messageChat.innerHTML = `
+            //    <div class="chat">
+            //       <div class ="chat-header">
+            //          <div class ="profile-img px-1">
+            //             <img class = "rounded-img" src ="img/portrait-4.jpg">
+            //             <h4 class= "message-name">${chatName}</h4>
+            //          </div>
+            //          <div class ="chat-header-utilities">
+            //             <div class ="px-2">
+            //                <i class ="fas fa-search"></i>
+            //             </div>
+            //             <div class="burger px-2">
+            //                <div class="line-1"></div>
+            //                <div class="line-2"></div>
+            //                <div class="line-3"></div>
+            //             </div>
+            //          </div>
+            //       </div>
+            //       <div class ="chat-message"></div>
+            //       <form class ="chat-input">
+            //          <div>
+            //             <i class="fas fa-smile"></i>
+            //             <i class="fas fa-paperclip"></i>
+            //          </div>
+            //          <input
+            //             type="text"
+            //             class="input"
+            //             placeholder="Type a message"
+            //          />
+            //          <div>
+            //             <button>
+            //                <img src="img/Capture.PNG" alt="" />
+            //             </button>
+            //          </div>
+            //       </form>
+            //    </div>
+            // `;
+            // // Append Message Div to the HTML
+            // const messageList = document.querySelector('.messages-section');
+            // messageList.classList.add('show-messages-section');
+            // messageList.appendChild(messageChat);
+            // console.log(messageChat);
             // Grab the Form Value
-            document
-               .querySelector('.chat-input')
-               .addEventListener('submit', (e) => {
-                  e.preventDefault();
-                  // Grab the input text
-                  const chatText = document.querySelector('.input').value;
-                  if (chatText.length === 0) {
-                     return;
-                  } else {
-                     const messageOne = new Message(chatText);
-
-                     // Create a new Div
-                     const newDiv = document.createElement('div');
-                     newDiv.classList.add('message-div');
-                     newDiv.innerHTML = `
-                        ${chatText}
-                     `;
-
-                     // Insert it to the HTML
-                     const chatMessages = document.querySelector(
-                        '.chat-message'
-                     );
-                     chatMessages.appendChild(newDiv);
-
-                     // Clear Fields
-                     document.querySelector('.input').value = '';
-                  }
-               });
+            // document
+            //    .querySelector('.chat-input')
+            //    .addEventListener('submit', (e) => {
+            //       e.preventDefault();
+            //       // Grab the input text
+            //       const chatText = document.querySelector('.input').value;
+            //       if (chatText.length === 0) {
+            //          return;
+            //       } else {
+            //          const messageOne = new Message(chatText);
+            //          // Create a new Div
+            //          const newDiv = document.createElement('div');
+            //          newDiv.classList.add('message-div');
+            //          newDiv.innerHTML = `
+            //             ${chatText}
+            //          `;
+            //          // Insert it to the HTML
+            //          const chatMessages = document.querySelector(
+            //             '.chat-message'
+            //          );
+            //          chatMessages.appendChild(newDiv);
+            //          // Clear Fields
+            //          document.querySelector('.input').value = '';
+            //       }
+            //    });
          });
       });
    }
