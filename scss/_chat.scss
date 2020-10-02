@@ -212,14 +212,32 @@
    // }
 }
 
-.message-div {
-   background-color: #cde7b8;
-   width: 60%;
-   color: #666;
+.chat-message {
+   float: right;
+   width: 50%;
    display: flex;
-   align-items: center;
-   justify-content: flex-end;
-   margin: 0.3rem 0;
-   padding: 0.3rem 1rem;
-   border-radius: 5px;
+   flex-direction: column;
+   div {
+      width: 100%;
+      background-color: #cde7b8;
+      margin: 0.3rem 0;
+      padding: 0.3rem 1rem;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+   }
 }
+
+// .message-div {
+//    background-color: #cde7b8;
+//    width: 45%;
+//    color: #666;
+//    display: flex;
+//    align-items: center;
+//    justify-content: flex-end;
+//    margin: 0.3rem 0;
+//    padding: 0.3rem 1rem;
+//    border-radius: 5px;
+//    float: right;
+// }
